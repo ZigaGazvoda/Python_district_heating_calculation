@@ -720,7 +720,7 @@ def get_results(df_pipes_c,end_pipes,df_users_c,pf,user_pipe,pipe_user,df_users)
         df_users_results)
 
 
-def print_results(heat_consumer,heat_losses,so_start):
+def print_results(heat_consumer,heat_losses,so_start,start_si):
     return(
     print("PRINTED RESULTS:\n"
           'Heat demand consumer:', round(heat_consumer.P.val/1000,2), "kW","\n", 
@@ -728,5 +728,7 @@ def print_results(heat_consumer,heat_losses,so_start):
           'Network losses:',round(heat_losses.P.val/(heat_consumer.P.val+heat_losses.P.val)*100,2), "%\n",
           "Source feed temperature:", round(so_start.T.val,2), "°C\n",
           "Source feed mass flow:", round(so_start.m.val,2), "kg/s\n",
-          "Source feed pressure:", round(so_start.p.val,2), "bar"
+          "Source feed pressure:", round(so_start.p.val,2), "bar\n"
+          "Source return pressure:", round(start_si.p.val,2), "bar\n"
+          "Source return temperature:", round(start_si.T.val,2), "°C"
     ))
